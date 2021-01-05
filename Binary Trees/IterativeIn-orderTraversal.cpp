@@ -12,11 +12,6 @@ public:
   void insert(vector<int> values, int i = 0);
 };
 
-void iterativeInOrderTraversal(BinaryTree *tree,
-                               void (*callback)(BinaryTree *tree)) {
-  // Write your code here.
-}
-
 void iterativeInOrderTraversal(BinaryTree *tree, void (*callback)(BinaryTree *tree)) { 
 	BinaryTree *previousNode = NULL;
 	BinaryTree *currentNode = tree;
@@ -31,8 +26,14 @@ void iterativeInOrderTraversal(BinaryTree *tree, void (*callback)(BinaryTree *tr
 				nextNode = currentNode->right != NULL ? currentNode->right : currentNode->parent; 
 			} 
 		} 
-		else if (previousNode == currentNode->left)
-		{
-			
+		else if (previousNode == currentNode->left) {
+			(*callback)(currentNode);
+			nextNode = currentNode->right != NULL ? currentNode->right : currentNode->parent;
 		}
-} }  { (*callback)(currentNode); nextNode = currentNode->right != ? currentNode->right : currentNode->parent; { nextNode = currentNode->parent; } previousNode = currentNode; currentNode = nextNode; 
+		else {
+			nextNode = currentNode->parent; 
+		}
+		previousNode = currentNode; 
+		currentNode = nextNode;
+	}
+}   
