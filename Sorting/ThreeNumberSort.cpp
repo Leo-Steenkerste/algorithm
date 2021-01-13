@@ -10,20 +10,20 @@ vector<int> threeNumberSort(vector<int> iArray, vector<int> iOrder) {
   int firstIdx = 0, secondIdx = 0, thirdIdx = iArray.size() - 1;
 
   while (secondIdx <= thirdIdx) {
-  	int value = iArray[secondIdx];
+    int value = iArray[secondIdx];
 
-  	if(value == firstValue) {
-  		swap(iArray[firstIdx], iArray[secondIdx]);
-  		firstIdx += 1;
-  		secondIdx += 1;
- 	}
- 	else if (value == secondValue) {
- 		secondIdx += 1;
- 	}
- 	else {
- 		swap(iArray[secondIdx], iArray[thirdIdx]);
- 		thirdIdx--;
- 	}
+    if(value == firstValue) {
+      swap(iArray[firstIdx], iArray[secondIdx]);
+      firstIdx += 1;
+      secondIdx += 1;
+  }
+  else if (value == secondValue) {
+    secondIdx += 1;
+  }
+  else {
+    swap(iArray[secondIdx], iArray[thirdIdx]);
+    thirdIdx--;
+  }
   } 
 
   return iArray;
